@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+    />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <title>TSF Bank</title>
+  </head>
+  <body>
+
+    <!-- ******Payment form starts from here******  -->
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Send Money</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          onclick="window.location.href = 'payment.html';"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              id="enterSName"
+              class="form-control"
+              placeholder="Sender's username"
+              aria-label="Sender's username"
+              aria-describedby="basic-addon2"
+            />
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2">@email.com</span>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              id="enterName"
+              class="form-control"
+              placeholder="Recipient's username"
+              aria-label="Recipient's username"
+              aria-describedby="basic-addon2"
+            />
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2">@email.com</span>
+            </div>
+          </div>
+          <div class="input-group mb-3 mx-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Rs:--></span>
+            </div>
+            <input
+              type="text"
+              id="enterAmount"
+              class="form-control"
+              placeholder=" Enter Amount"
+              aria-label="Amount"
+            />
+            <div class="input-group-append">
+              <span class="input-group-text">.00</span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn"
+          data-dismiss="modal"
+          onclick="window.location.href = 'payment.html';"
+        >
+          Close
+        </button>
+        <button type="button" class="btn" id="pay">Pay Now</button>
+      </div>
+    </div>
+
+<!-- ******Jquery CDN link is here******  -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+<!-- ******Code of Jquery starts from here******  -->
+
+    <script>
+      $("#pay").click(function () {
+        var enterSName = $("#enterSName").val();
+        var enterName = $("#enterName").val();
+        var enterAmount = $("#enterAmount").val();
+        if (enterSName == "" || enterName == "" || enterAmount == "") {
+          swal("Sorry!", "Please check the Missing fields!", "error");
+        } else {
+          swal("Thank You!", "Payment has been done successfully!", "success");
+        }
+      });
+    </script>
+  </body>
+
+<!-- ******Styling of this Payment page starts from here******  -->
+
+  <style>
+    .modal-content {
+      width: 50%;
+      margin: auto;
+      margin-top: 2rem;
+    }
+    .btn:hover {
+      background-color: #2874a6;
+      color: #fff;
+    }
+  </style>
+</html>
